@@ -7,6 +7,7 @@ import BodyComponent from './BaiTapThucHanhLayOut/BodyComponent';
 import DataBinding from './DataBinding/DataBinding';
 import HandleEvent from './DataBinding/HandleEvent';
 import DemoState from './DemoState/DemoState';
+import DemoFontSize from './DemoState/DemoFontSize';
 
 //component chính
 // các object thẻ built in (có sẵn): div, p, a, li...
@@ -17,7 +18,8 @@ function App() {
     <div className='container'>
       {/* <DataBinding/>
       <HandleEvent/> */}
-      <DemoState/>
+      {/* <DemoState/> */}
+      <DemoFontSize/>
     </div>
 
   );
