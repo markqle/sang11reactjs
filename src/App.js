@@ -4,6 +4,9 @@ import ClassComponent from './Components/ClassComponent';
 import FunctionComponent from './Components/FunctionComponent';
 import HomeComponent from './BTComponent/HomeComponent';
 import BodyComponent from './BaiTapThucHanhLayOut/BodyComponent';
+import DataBinding from './DataBinding/DataBinding';
+import HandleEvent from './DataBinding/HandleEvent';
+import DemoState from './DemoState/DemoState';
 
 //component chính
 // các object thẻ built in (có sẵn): div, p, a, li...
@@ -12,27 +15,9 @@ function App() {
   // gọi component
   return (
     <div className='container'>
-      {/* <ClassComponents></ClassComponents>
-       <ClassComponents/> */}
-      {/* <FunctionComponent/> */}
-      {/* .row: emment react giup tao div co class row  */}
-      {/* crush relationship management */}
-      {/* <div className="row">*/}
-      {/* .col-3*4 */}
-      {/* <ClassComponent/>
-
-         <ClassComponent/>
-
-        <ClassComponent/>
-
-         <ClassComponent/>
-       </div>  */}
-      {/* <HomeComponent/>*/}
-
-
-      <BodyComponent />
-
-
+      {/* <DataBinding/>
+      <HandleEvent/> */}
+      <DemoState/>
     </div>
 
   );
