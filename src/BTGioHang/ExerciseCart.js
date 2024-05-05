@@ -1,6 +1,59 @@
 import React, { Component, Fragment } from 'react'
+import ProductList from './ProductList'
+import Cart from './Cart'
+
 
 export default class ExerciseCart extends Component {
+    arrPhone = [
+        { "maSP": 1, "tenSP": "VinSmart Live", "manHinh": "AMOLED, 6.2, Full HD+", "heDieuHanh": "Android 9.0 (Pie)", "cameraTruoc": "20 MP", "cameraSau": "Chính 48 MP & Phụ 8 MP, 5 MP", "ram": "4 GB", "rom": "64 GB", "giaBan": 5700000, "hinhAnh": "./img/phone/vsphone.jpg" },
+        { "maSP": 2, "tenSP": "Meizu 16Xs", "manHinh": "AMOLED, FHD+ 2232 x 1080 pixels", "heDieuHanh": "Android 9.0 (Pie); Flyme", "cameraTruoc": "20 MP", "cameraSau": "Chính 48 MP & Phụ 8 MP, 5 MP", "ram": "4 GB", "rom": "64 GB", "giaBan": 7600000, "hinhAnh": "./img/phone/meizuphone.jpg" },
+        { "maSP": 3, "tenSP": "Iphone XS Max", "manHinh": "OLED, 6.5, 1242 x 2688 Pixels", "heDieuHanh": "iOS 12", "cameraSau": "Chính 12 MP & Phụ 12 MP", "cameraTruoc": "7 MP", "ram": "4 GB", "rom": "64 GB", "giaBan": 27000000, "hinhAnh": "./img/phone/applephone.jpg" }
+    ]
+
+    //khai bao state, goi setState
+    //gioHang moi tao => chua co san pham,
+    //tao san pham test => test binding state
+    state={
+        gioHang: [
+            
+        ]
+    }
+
+    //input san pham dang duoc click
+    // {maSP:1, tenSP: "VinSmart Live", giaBan: 5700000, hinhAnh: "./img/phone/vsphone.jpg", soLuong: 1},
+    addToCart = (phoneClick) =>{
+        // nơi gọi setState
+        // tạo đối tượng riêng cho giỏ hàng
+        console.log(phoneClick)
+        let {maSP, tenSP, giaBan, hinhAnh} = phoneClick;
+        let cartItem = {
+            maSP: maSP,
+            tenSP: tenSP,
+            giaBan: giaBan,
+            hinhAnh: hinhAnh,
+            soLuong: 1
+        }
+        let gioHangUpdate = [...this.state.gioHang]
+
+        //find():duyệt mảng, so sánh theo điều kiện tìm => return về obj tìm được
+        let cartFind = this.state.gioHang.find((cartItem) => cartItem.maSP === phoneClick.maSP)
+        //Check sản phẩm đã có ở giỏ hàng k ? nếu có tăng số lượng
+        if (cartFind){
+            // có sẳn phẩm => tăng số lượng
+            cartFind.soLuong += 1;
+        }else{
+            // thêm mới vào mảng
+            //[...copy phần tử từ mảng cũ, thêm phần tử mới]
+            // tạo mảng mới => địa chỉ mới => xử lý vẫn đề tham chiếu
+            gioHangUpdate.push(cartItem);
+        }
+
+        //TODO: goi setState và điền state mới vào
+        this.setState({
+            gioHang: gioHangUpdate
+        })
+    }
+
     render() {
         return (
             <Fragment>
@@ -32,61 +85,19 @@ export default class ExerciseCart extends Component {
                                 <a className="nav-link disabled">Disabled</a>
                             </li>
                         </ul>
-                        <div className="cart-Group"  data-toggle="modal" data-target="#exampleModal">
+                        <div className="cart-Group" data-toggle="modal" data-target="#exampleModal">
                             Gio Hang (0)
                         </div>
                     </div>
                 </nav>
 
-                <div>
+                <div className='Content py-5'>
                     <h2>Danh sách sản phẩm</h2>
-                    <div className="row">
-                        <div className="col-3">
-                            <div className="card">
-                                <img src="..." className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <button className= 'btn btn-success' data-toggle="modal" data-target="#exampleModal">Them gio hang</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ProductList addToCart={this.addToCart} arrPhone={this.arrPhone} />
 
                 </div>
 
-                <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog modal-lg">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <table className="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Mã sản phẩm</th>
-                                            <th scope="col">Hình ảnh</th>
-                                            <th scope="col">Tên sản phẩm</th>
-                                            <th scope="col">Số lượng</th>
-                                            <th scope="col">Đơn giá</th>
-                                            <th scope="col">Thành tiền</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Cart gioHang={this.state.gioHang}/>
 
             </Fragment>
         )
