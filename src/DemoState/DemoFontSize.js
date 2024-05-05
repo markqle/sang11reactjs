@@ -36,6 +36,7 @@ export default class DemoFontSize extends Component {
       <div>
         <h2>Tang giam font-size</h2>
         <p style={{fontSize:`${this.state.fs}px`}} className='alert alert-warning'> Nguyen Thi Khach Hang
+        {/* module css => class component */}
         </p>
 
         <button className='btn btn-success' onClick={this.tangFS}>+</button>

@@ -8,6 +8,9 @@ import DataBinding from './DataBinding/DataBinding';
 import HandleEvent from './DataBinding/HandleEvent';
 import DemoState from './DemoState/DemoState';
 import DemoFontSize from './DemoState/DemoFontSize';
+import DemoCar from './DemoState/DemoCar';
+import DemoProduct from './DemoSanPham/DemoProduct';
+import ExerciseCart from './BTGioHang/ExerciseCart';
 
 //component chính
 // các object thẻ built in (có sẵn): div, p, a, li...
@@ -19,7 +22,10 @@ function App() {
       {/* <DataBinding/>
       <HandleEvent/> */}
       {/* <DemoState/> */}
-      <DemoFontSize/>
+      {/* <DemoFontSize/> */}
+      {/* <DemoCar/> */}
+      {/* <DemoProduct/> */}
+      <ExerciseCart/>
     </div>
 
   );
