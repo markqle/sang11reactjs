@@ -74,6 +74,7 @@ export default class ExerciseCart extends Component {
         let gioHangMoi = this.state.gioHang.filter(cartItem => cartItem.maSP !== maSPClick)
 
         //TODO: gọi setState
+        //? dùng để render lại UI
         this.setState({
             gioHang: gioHangMoi
         })
@@ -81,6 +82,7 @@ export default class ExerciseCart extends Component {
     }
 
     // sl + 1, sl - 1
+    // Truyền tham số
     //soLuong => tăng +1, giảm -1; thay đổi sl => cập nhật sản phẩm
     // input: mã sản phẩm cần tăng sl, số lượng tăng hoặc giảm
     changeSL = (maSPClick, sl) => {
@@ -90,6 +92,7 @@ export default class ExerciseCart extends Component {
         // let gioHang = this.state.gioHang // biến có địa chỉ mới
 
         let { gioHang } = this.state
+        // find là callback function sẽ duyệt từng sản phẩm trong giỏ hàng
         let findItem = gioHang.find((cartItem) => {
             return cartItem.maSP == maSPClick
         })

@@ -11,6 +11,7 @@ import DemoFontSize from './DemoState/DemoFontSize';
 import DemoCar from './DemoState/DemoCar';
 import DemoProduct from './DemoSanPham/DemoProduct';
 import ExerciseCart from './BTGioHang/ExerciseCart';
+import ExerciseCartRedux from './BTGioHangRedux/ExerciseCartRedux';
 
 //component chính
 // các object thẻ built in (có sẵn): div, p, a, li...
@@ -25,7 +26,7 @@ function App() {
       {/* <DemoFontSize/> */}
       {/* <DemoCar/> */}
       {/* <DemoProduct/> */}
-      <ExerciseCart/>
+      <ExerciseCartRedux/>
     </div>
 
   );
