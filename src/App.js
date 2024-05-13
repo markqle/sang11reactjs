@@ -12,6 +12,7 @@ import DemoCar from './DemoState/DemoCar';
 import DemoProduct from './DemoSanPham/DemoProduct';
 import ExerciseCart from './BTGioHang/ExerciseCart';
 import ExerciseCartRedux from './BTGioHangRedux/ExerciseCartRedux';
+import GameTaiXiu from './GameTaiXiu/GameTaiXiu';
 
 //component chính
 // các object thẻ built in (có sẵn): div, p, a, li...
@@ -19,14 +20,15 @@ import ExerciseCartRedux from './BTGioHangRedux/ExerciseCartRedux';
 function App() {
   // gọi component
   return (
-    <div className='container'>
+    <div className='main'>
       {/* <DataBinding/>
       <HandleEvent/> */}
       {/* <DemoState/> */}
       {/* <DemoFontSize/> */}
       {/* <DemoCar/> */}
       {/* <DemoProduct/> */}
-      <ExerciseCartRedux/>
+      {/* <ExerciseCartRedux/> */}
+      <GameTaiXiu />
     </div>
 
   );

@@ -1,0 +1,22 @@
+/* Nếu hình ở public => url viết theo vị trí file hiện tại ở index html
+
+Hình ở folder asset => url đường dẫn tương đối từ file css hiện tại
+*/
+.game-content{
+    background-image: url(../asset/img/bgGame.png);
+    height: 100vh;
+    text-align: center
+}
+
+.game-btn{
+    padding: 50px;
+    font-size: 40px;
+}
+
+.game-img{
+    width: calc(100% /4);
+}
+
+.game-result{
+    font-size:30px;
+}
